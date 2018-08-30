@@ -1,0 +1,13 @@
+get_filename_component(ailib_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+include(CMakeFindDependencyMacro)
+
+list(APPEND CMAKE_MODULE_PATH ${ailib_CMAKE_DIR})
+
+# NOTE Had to use find_package because find_dependency does not support COMPONENTS or MODULE until 3.8.0
+list(REMOVE_AT CMAKE_MODULE_PATH -1)
+
+if(NOT TARGET ailib::ailib)
+    include("${ailib_CMAKE_DIR}/ailibTargets.cmake")
+endif()
+
+set(ailib_LIBRARIES ailib::ailib)
