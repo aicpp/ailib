@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <vector>
+#include <cstring> // std::memset
 
 /// @defgroup aialgorithm aialgorithm
 /// Helpers and extentions to implement algorithms
