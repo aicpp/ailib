@@ -14,6 +14,7 @@ addons: &clang35
   apt:
     packages:
       - clang-3.5
+      - libc++-dev
     sources:
       - ubuntu-toolchain-r-test
       - llvm-toolchain-precise-3.5
@@ -22,6 +23,7 @@ addons: &clang6
   apt:
     packages:
       - clang-6.0
+      - libc++-dev
     sources:
       - ubuntu-toolchain-r-test
       - llvm-toolchain-trusty-6.0
@@ -57,7 +59,7 @@ matrix:
       # osx
     - env: BUILD_TYPE=Release CPP=11 ASAN=Off TSAN=Off
       os: osx
-    
+
 
 before_script:
   - if [ -n "$GCC_VERSION" ]; then export CXX="g++-${GCC_VERSION}" CC="gcc-${GCC_VERSION}"; fi
